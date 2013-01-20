@@ -1,6 +1,8 @@
+<br /><br />
+<h2>Lista de Clientes</h2>
 <?php 
 
-echo '<br /><br /><br /><table class=\'lista\'>
+echo '<table class=\'lista\'>
 			<tr>
 				<th>Nome</th>
 				<th>Razao social</th>

@@ -19,10 +19,6 @@
 			<td><input name='endereco' required/></td>
 		</tr>
 		<tr>
-			<td>Data da proxima visita</td>
-			<td><input type='date' /></td>
-		</tr>
-		<tr>
 			<td>Selecione o status do cliente: </td>
 			<td><select name='status'>
 				<option value='contratado'>Contratado</option>

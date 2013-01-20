@@ -6,8 +6,8 @@ CREATE TABLE clientes (
 	razao_social varchar(255) NOT NULL,
 	cnpj char(18) NOT NULL,
 	endereco varchar(255) NOT NULL,
-	data_ultima_visita date NOT NULL,
-	data_proxima_visita date NOT NULL,
+	data_ultima_visita date NULL,
+	data_proxima_visita date NULL,
 	status varchar(255) NOT NULL,
 	PRIMARY KEY (id)
 );
@@ -60,15 +60,10 @@ CREATE TABLE users (
 );
 
 
-
 INSERT INTO tipo_servico (nome_servico) values ('rato'),('barata'),('formiga'),('escorpiao'); 
-
-
-
 
 INSERT INTO clientes (nome) values ('ItCursos'),('Universidade Potiguar'),('Evolux'); 
 
-
-
-
 INSERT INTO funcionarios (nome) values ('Alisson Levi'),('Lucas Castro'),('Diego'),('Rodrigo Castro');
+
+INSERT INTO servico_tecnico (data_execucao, funcionario_id, cliente_id, tempo_garantia, observacoes, status) values ('2013-03-05', 1, 1, 3, 'sem observações', 'agendado');

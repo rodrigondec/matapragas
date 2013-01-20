@@ -20,7 +20,7 @@
 				while ($funcionarios = mysql_fetch_assoc($resultado)) {
 			?>
 				<option value='<?php echo $funcionarios['id']?>'>
-						<?php echo $funcionarios['nome']?>
+						<?php echo $funcionarios['nome'];?>
 				</option>';
 				
 			<?php } echo '</select>';?>
@@ -83,12 +83,13 @@
 	</form>
 </table>
 <?php 
-
-	if (count($_POST) > 0){
-		insert($_POST,'servico_tecnico');
-		ob_clean();
-		header('LOCATION: /'.BASE.'/index.php/servico/listar/');
+	var_dump($_POST['funcionario_id']);
+	$_POST['funcionario_id']
+	// if (count($_POST) > 0){
+	// 	insert($_POST,'servico_tecnico');
+	// 	ob_clean();
+	// 	header('LOCATION: /'.BASE.'/index.php/servico/listar/');
 		
-	}
+	// }
 
 ?>
