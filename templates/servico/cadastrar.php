@@ -2,7 +2,7 @@
 
 <h2>Cadastrar Serviços</h2>
 
-<table>
+<table class='form'>
 	<form  class='form_padrao' method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
 
 		<!-- Pra q esse input com o id? id eh auto-increment e n precisa salvar id no cadastro <td><input name='id' type='hidden'/> -->

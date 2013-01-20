@@ -10,11 +10,11 @@
 
 
 
-<table>
+<table class='form'>
 	<form method='POST' action='matapragas/index.php/servico/alterar/?id=<?php echo $_GET['id'] ?>'>
 		<!-- para q esse id se ja tem no $_GET ? <input name='id' value='<?php echo $_GET['id']; ?>' type='hidden'/> -->
 		<tr>
-			<td>Data:</td>
+			<td>Modifique a data:</td>
 			<td><input type='text' name='data_execucao' 
 						value='<?php 
 									$servicos['data_execucao']=implode("/",array_reverse(explode("-",$servicos['data_execucao'])));
@@ -23,7 +23,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Executor:</td> 
+			<td>Modifique o executor:</td> 
 			<td><?php 
 				$sql = 'select * from funcionarios;';
 				//Execute a query
@@ -40,7 +40,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Cliente:</td>
+			<td>Modifique o cliente:</td>
 			<td><?php $sql = 'select * from clientes;';
 				//Execute a query
 				$resultado = mysql_query($sql);
@@ -57,9 +57,10 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Tempo de Garantia:<td>
-			<td><input type='text' name='tempo_garantia'value='<?php echo $servicos['tempo_garantia'] ?>' required>meses</td>
-			<td>Observações:<td>
+			<td class='form'>Tempo de Garantia (em meses):</td>
+			<td><input type='text' name='tempo_garantia'value='<?php echo $servicos['tempo_garantia'] ?>' required></td>
+		<tr>
+			<td>Observações:</td>
 			<td><input type='text' name='observacoes' value='<?php echo $servicos['observacoes'] ?>' required></td>
 		</tr>
 		<tr>
