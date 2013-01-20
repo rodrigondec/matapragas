@@ -38,6 +38,7 @@ CREATE TABLE servico_tecnico (
 	tempo_garantia int NOT NULL,
 	observacoes varchar(255) NOT NULL,
 	status varchar(255) NOT NULL,
+	tipo_servico varchar(255) NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (funcionario_id) REFERENCES funcionarios(id),
 	FOREIGN KEY (cliente_id) REFERENCES clientes(id)

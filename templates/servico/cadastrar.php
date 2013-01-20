@@ -2,13 +2,13 @@
 
 <h2>Cadastrar Serviços</h2>
 
-<table class='form'>
+<table>
 	<form  class='form_padrao' method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
 
 		<!-- Pra q esse input com o id? id eh auto-increment e n precisa salvar id no cadastro <td><input name='id' type='hidden'/> -->
 		<tr>
 			<td>Data:</td>
-			<td><input type='date' name='data_execucao' required></td>
+			<td><input type='date' name='data_execucao' required/></td>
 		</tr>
 		<tr>
 			<td>Executor:</td> 
@@ -43,18 +43,26 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Tempo de Garantia:</td><td><input type='text' name='tempo_garantia' placeholder='Digite valor em meses'required></td>
+			<td>Tempo de Garantia:</td><td><input type='text' name='tempo_garantia' placeholder='Digite valor em meses'required/></td>
 		</tr>
 		<tr>
-			<td>Observações:</td><td><input type='text' name='observacoes' required></td>
+			<td>Observações:</td><td><input type='text' name='observacoes' required/></td>
 		</tr>
 		<tr>
 			<td>Status:</td>
-			<td><select type='text' name='status' required>
-				<option>Executado</option>
-				<option>Agendado</option>
+			<td><select type='text' name='status' required/>
+					<option>Executado</option>
+					<option>Agendado</option>
 				</select>
 			</td>
+		</tr>
+		<tr>
+			<td>Tipo de Serviço/Praga:</td>
+			<td><input class='checkbox' type='checkbox' name='tipo_servico[]' value='rato' />Rato
+				<input class='checkbox' type='checkbox' name='tipo_servico[]' value='barata' />Barata
+				<input class='checkbox' type='checkbox' name='tipo_servico[]' value='formiga' />Formiga
+				<input class='checkbox' type='checkbox' name='tipo_servico[]' value='escorpiao' />Escorpiao
+			<td>
 		</tr>
 
 
@@ -79,7 +87,7 @@
 	</tr>
 		-->
 
-		<td><button type='submit'>Cadastrar</button></td>
+		<tr><td><button type='submit'>Cadastrar</button></td></tr>
 	</form>
 </table>
 <?php 
@@ -87,6 +95,7 @@
 	
 	
 	if (count($_POST) > 0){
+		// var_dump($_POST);
 		$_POST['funcionario_id'] = (int)$_POST['funcionario_id'];
 		$_POST['cliente_id'] = (int)$_POST['cliente_id'];
 		insert($_POST,'servico_tecnico');

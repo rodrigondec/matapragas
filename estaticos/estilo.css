@@ -29,6 +29,10 @@ table.lista td {
   background-color: #ffffff;
 }
 
+input.checkbox {
+  max-width: 400px;
+}
+
 table.form td {
   max-width: 150px;
 }

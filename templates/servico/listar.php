@@ -45,7 +45,7 @@
 					<td>'.$servicos['tempo_garantia'].' meses</td>
 					<td>'.$servicos['observacoes'].'</td>
 					<td>'.$servicos['status'].'</td>
-					<td>a preencher</td>
+					<td>'.$servicos['tipo_servico'].'</td>
 					<td><a href=\'/'.BASE.'/index.php/servico/alterar/?id='.$servicos['id'].'\'>Alterar</a></td>
 					<td><a href=\'/'.BASE.'/index.php/servico/remover/?id='.$servicos['id'].'\'>Remover</a></td>
 				</tr>';

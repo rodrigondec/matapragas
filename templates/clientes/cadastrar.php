@@ -12,7 +12,7 @@
 		</tr>
 		<tr>
 			<td>Digite o nome o cnpj do cliente: </td>
-			<td><input name='cnpj' required/></td>
+			<td><input name='cnpj' placeholder='Ex: 12.123.123/124-12' required/></td>
 		</tr>
 		<tr>
 			<td>Digite o endereco do cliente: </td>
