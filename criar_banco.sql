@@ -71,7 +71,4 @@ INSERT INTO clientes (nome) values ('ItCursos'),('Universidade Potiguar'),('Evol
 
 
 
-INSERT INTO funcionarios(nome) values ('Alisson Levi'),('Lucas Castro'),('Diego'),('Rodrigo Castro'); 
-
-
-
+INSERT INTO funcionarios (nome) values ('Alisson Levi'),('Lucas Castro'),('Diego'),('Rodrigo Castro');

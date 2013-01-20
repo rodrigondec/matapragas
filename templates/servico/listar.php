@@ -18,10 +18,6 @@
 				<th>Observações</th>
 				<th>Status</th>
 				<th>Tipo de Serviços</th>
-				<th></th>
-				<th></th>
-
-
 			</tr>';
 		//Enquanto fetch retornar algo diferente de nulo
 		while ($servicos = mysql_fetch_assoc($resultado)) {

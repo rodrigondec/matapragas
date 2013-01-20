@@ -1,4 +1,5 @@
 <br /><br />
+<h2>Cadastrar Cliente</h2>
 <table>
 	<form action='<?php echo $_SERVER['PHP_SELF']?>' method='post'>
 		<tr>

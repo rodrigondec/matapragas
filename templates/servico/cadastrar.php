@@ -1,58 +1,66 @@
+<br /><br />
+
 <h2>Cadastrar Serviços</h2>
 
+<table>
+	<form  class='form_padrao' method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
 
-<form  class='form_padrao' method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
-	<input name='id' type='hidden'/>
-	<label><span>Data:</span><input type='date' name='data_execucao' required><br /></label>
-	<label><span>Executor:</span> 
-		<?php $sql = 'select * from funcionarios;';
-			//Execute a query
-			$resultado = mysql_query($sql);
-			echo '<select name=\'funcionario_id\'>';
-			//Enquanto fetch retornar algo diferente de nulo
-			while ($funcionarios = mysql_fetch_assoc($resultado)) {
-		?>
-			<option value='<?php echo $funcionarios['id']?>'>
-					<?php echo $funcionarios['nome']?>
-			</option>';
-			
-		<?php
-			}
-			echo '</select>';
-		?>
-
-		<br /></label>
-	<label><span>Cliente:</span>
-		<?php $sql = 'select * from clientes;';
-			//Execute a query
-			$resultado = mysql_query($sql);
-			echo '<select name=\'cliente_id\'>';
-			//Enquanto fetch retornar algo diferente de nulo
-			while ($clientes = mysql_fetch_assoc($resultado)) {
-		?>
-				<option value='<?php echo $clientes['id']?>'>
-					<?php echo $clientes['nome']?>
+		<!-- Pra q esse input com o id? id eh auto-increment e n precisa salvar id no cadastro <td><input name='id' type='hidden'/> -->
+		<tr>
+			<td>Data:</td>
+			<td><input type='date' name='data_execucao' required></td>
+		</tr>
+		<tr>
+			<td>Executor:</td> 
+			<td><?php $sql = 'select * from funcionarios;';
+				//Execute a query
+				$resultado = mysql_query($sql);
+				echo '<select name=\'funcionario_id\'>';
+				//Enquanto fetch retornar algo diferente de nulo
+				while ($funcionarios = mysql_fetch_assoc($resultado)) {
+			?>
+				<option value='<?php echo $funcionarios['id']?>'>
+						<?php echo $funcionarios['nome']?>
 				</option>';
-		
-		<?php
-			}
-			echo '</select>';
-
-		?>
-
-
-		<br /></label>
-		<label><span>Tempo de Garantia:</span><input type='text' name='tempo_garantia' placeholder='Digite valor em meses'required><br /></label>
-		<label><span>Observações:</span><input type='text' name='observacoes' required><br /></label>
-		<label><span>Status:</span><select type='text' name='status' required>
-			<option>Executado</option>
-			<option>Agendado</option>
-		</select><br /></label>
+				
+			<?php } echo '</select>';?>
+			</td>
+		</tr>
+		<tr>
+			<td>Cliente:</td>
+			<td><?php $sql = 'select * from clientes;';
+				//Execute a query
+				$resultado = mysql_query($sql);
+				echo '<select name=\'cliente_id\'>';
+				//Enquanto fetch retornar algo diferente de nulo
+				while ($clientes = mysql_fetch_assoc($resultado)) {
+			?>
+					<option value='<?php echo $clientes['id']?>'>
+						<?php echo $clientes['nome']?>
+					</option>';
+			
+			<?php } echo '</select>';?>
+			</td>
+		</tr>
+		<tr>
+			<td>Tempo de Garantia:</td><td><input type='text' name='tempo_garantia' placeholder='Digite valor em meses'required></td>
+		</tr>
+		<tr>
+			<td>Observações:</td><td><input type='text' name='observacoes' required></td>
+		</tr>
+		<tr>
+			<td>Status:</td>
+			<td><select type='text' name='status' required>
+				<option>Executado</option>
+				<option>Agendado</option>
+				</select>
+			</td>
+		</tr>
 
 
 
 	<!--
-	<label>Tipo de Serviço
+	<tr>Tipo de Serviço
 		<?php 
 			//$sql = 'select * from tipo_servico;';
 			//Execute a query
@@ -68,12 +76,12 @@
 
 		?>
 
-	<br /></label>
+	</tr>
 		-->
 
-	<button type='submit'>Cadastrar</button>
-</form>
-
+		<td><button type='submit'>Cadastrar</button></td>
+	</form>
+</table>
 <?php 
 
 	if (count($_POST) > 0){
