@@ -37,7 +37,7 @@
     function delete($id, $tabela) {
         $sql = 'DELETE FROM '.$tabela.' WHERE id='.$id.';';
         return mysql_query($sql);
-        
+        // var_dump($sql);
     }
 
     // função que executa SQL para UPDATE

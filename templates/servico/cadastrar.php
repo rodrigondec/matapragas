@@ -83,13 +83,16 @@
 	</form>
 </table>
 <?php 
-	var_dump($_POST['funcionario_id']);
-	$_POST['funcionario_id']
-	// if (count($_POST) > 0){
-	// 	insert($_POST,'servico_tecnico');
-	// 	ob_clean();
-	// 	header('LOCATION: /'.BASE.'/index.php/servico/listar/');
+	
+	
+	
+	if (count($_POST) > 0){
+		$_POST['funcionario_id'] = (int)$_POST['funcionario_id'];
+		$_POST['cliente_id'] = (int)$_POST['cliente_id'];
+		insert($_POST,'servico_tecnico');
+		ob_clean();
+		header('LOCATION: /'.BASE.'/index.php/servico/listar/');
 		
-	// }
+	}
 
 ?>

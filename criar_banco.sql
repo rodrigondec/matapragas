@@ -1,3 +1,4 @@
+DROP DATABASE matapragas;
 CREATE DATABASE matapragas;
 USE matapragas;
 CREATE TABLE clientes ( 
@@ -9,7 +10,10 @@ CREATE TABLE clientes (
 	data_ultima_visita date NULL,
 	data_proxima_visita date NULL,
 	status varchar(255) NOT NULL,
-	PRIMARY KEY (id)
+	PRIMARY KEY (id),
+	UNIQUE (nome),
+	UNIQUE (cnpj),
+	UNIQUE (razao_social)
 );
 CREATE TABLE funcionarios (
 	id int NOT NULL auto_increment,
@@ -62,8 +66,8 @@ CREATE TABLE users (
 
 INSERT INTO tipo_servico (nome_servico) values ('rato'),('barata'),('formiga'),('escorpiao'); 
 
-INSERT INTO clientes (nome) values ('ItCursos'),('Universidade Potiguar'),('Evolux'); 
+INSERT INTO clientes (nome, razao_social, cnpj, endereco, status) values ('ItCursos', 'Itrative Cursos', '12.123.123/1234-12', 'Rua Miguel Castro', 'contratado'),('Universidade Potiguar', 'ufrn', '11.123.123/1234-12', 'Rua Desconhecida', 'sob demanda'),('Evolux', 'Evolpixu', '13.123.123/1234-12', 'Rua Evesconhecida', 'contratado'); 
 
 INSERT INTO funcionarios (nome) values ('Alisson Levi'),('Lucas Castro'),('Diego'),('Rodrigo Castro');
 
-INSERT INTO servico_tecnico (data_execucao, funcionario_id, cliente_id, tempo_garantia, observacoes, status) values ('2013-03-05', 1, 1, 3, 'sem observações', 'agendado');
+INSERT INTO servico_tecnico (data_execucao, funcionario_id, cliente_id, tempo_garantia, observacoes, status) values ('2013-03-05', 1, 1, 3, 'nenhuma', 'agendado');
