@@ -3,11 +3,7 @@
 
 <?php
 
-	//Query para buscar todos os serviços
 	$sql = 'select * from servico_tecnico;';
-	
-
-	//Execute a query
 	$resultado = mysql_query($sql);
 	echo '<table class=\'lista\'> 
 		<tr>
@@ -19,9 +15,8 @@
 			<th>Status</th>
 			<th>Tipo de Serviços</th>
 		</tr>';
-	//Enquanto fetch retornar algo diferente de nulo
+
 	while ($servicos = mysql_fetch_assoc($resultado)) {
-		//inverte o formato da data do mysql para brasileiro
 		$servicos['data_execucao']=implode("/",array_reverse(explode("-",$servicos['data_execucao'])));
 			echo '<tr>
 					<td>'.$servicos['data_execucao'].'</td>';
