@@ -5,7 +5,7 @@ CREATE TABLE clientes (
 	nome varchar(255) NOT NULL,
 	razao_social varchar(255) NOT NULL,
 	cnpj char(18) NOT NULL,
-	endereço varchar(255) NOT NULL,
+	endereco varchar(255) NOT NULL,
 	data_ultima_visita date NOT NULL,
 	data_proxima_visita date NOT NULL,
 	status varchar(255) NOT NULL,
