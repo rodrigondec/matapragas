@@ -1,59 +1,54 @@
 <h2>Alterar Serviço</h2>
 
 <?php 
-
 	$sql = 'SELECT * FROM servico_tecnico WHERE id='.$_GET['id'].';';
 	$resultado = mysql_query($sql);
 	$servicos = mysql_fetch_assoc($resultado);
-
 ?>
-
-
-
 <table class='form'>
 	<form method='POST' action='matapragas/index.php/servico/alterar/?id=<?php echo $_GET['id'] ?>'>
-		<!-- para q esse id se ja tem no $_GET ? <input name='id' value='<?php echo $_GET['id']; ?>' type='hidden'/> -->
 		<tr>
 			<td>Modifique a data:</td>
-			<td><input type='text' name='data_execucao' 
-						value='<?php 
-									$servicos['data_execucao']=implode("/",array_reverse(explode("-",$servicos['data_execucao'])));
-									echo $servicos['data_execucao'] 
-								?>' required>
+			<td><input type='text' name='data_execucao' value=
+				<?php 
+					echo '\'';
+					$servicos['data_execucao']=implode("/",array_reverse(explode("-",$servicos['data_execucao'])));
+					echo trim($servicos['data_execucao'],'\t').'\'';
+				?>
+				required>
 			</td>
 		</tr>
 		<tr>
 			<td>Modifique o executor:</td> 
-			<td><?php 
+			<td>
+			<select name='funcionario_id'>
+			<?php 
 				$sql = 'select * from funcionarios;';
-				//Execute a query
 				$resultado = mysql_query($sql);
-				echo '<select name=\'funcionario_id\' >';
-				//Enquanto fetch retornar algo diferente de nulo
-				while ($funcionarios = mysql_fetch_assoc($resultado)) {
-				?>
-					<option value='<?php echo $funcionarios['id']?>'>
-						<?php echo $funcionarios['nome']?>
-					</option>';
-
-				<?php }	echo '</select>';	?>
+				while ($funcionarios = mysql_fetch_assoc($resultado)):
+			?>
+				<option value='<?php echo $funcionarios['id']?>'>
+				<?php echo $funcionarios['nome']?>
+				</option>';
+				<?php endwhile; ?>
+			</select>
 			</td>
 		</tr>
 		<tr>
 			<td>Modifique o cliente:</td>
-			<td><?php $sql = 'select * from clientes;';
-				//Execute a query
+			<td>
+			<select name='cliente_id' value='<?php echo $servicos['cliente_id']?>'>
+			<?php
+				$sql = 'select * from clientes;';				
 				$resultado = mysql_query($sql);
-				echo '<select name=\'cliente_id\' value=\'<?php echo $servicos[\'cliente_id\']?>\'>';
-				//Enquanto fetch retornar algo diferente de nulo
-				while ($clientes = mysql_fetch_assoc($resultado)) {
-				?>
-						<option value='<?php echo $clientes['id']?>'>
-							<?php echo $clientes['nome']?>
-						</option>';
-						
-
-				<?php }	echo '</select>';	?>
+				echo '';
+				while ($clientes = mysql_fetch_assoc($resultado)):
+			?>
+				<option value='<?php echo $clientes['id']?>'>
+				<?php echo $clientes['nome']?>
+				</option>';	
+				<?php endwhile; ?>
+			</select>
 			</td>
 		</tr>
 		<tr>
@@ -64,6 +59,26 @@
 			<td><input type='text' name='observacoes' value='<?php echo $servicos['observacoes'] ?>' required></td>
 		</tr>
 		<tr>
+			<td>Modifique o status:</td>
+			<td>
+			<select name='status'>
+			<?php
+				$sql = 'SELECT status from servico_tecnico';
+				$resultado = mysql_query($sql);
+				$tratamento = mysql_fetch_assoc($resultado);
+				$status = $tratamento['status'];				
+		echo 	'<option value=\'executado\''; 
+					if ($status == 'executado'){
+					echo 'selected';
+			}
+		echo 	'>executado</option>
+				<option value=\'agendado\'';
+					if ($status == 'agendado'){
+				 	echo 'selected';
+			}
+		echo 	'>agendado</option>
+			</select></td>';?>
+		<tr>
 			<td><button type='submit'>Alterar Cadastro</button></td>
 		</tr>
 	</form>
@@ -71,11 +86,11 @@
 
 <?php 
 
-
 	if(count($_POST) > 0){
-			$_POST['data_execucao']=converteData($_POST['data_execucao']);
-			update($_POST,$_POST['id'],'servico_tecnico');
-			ob_clean();
-			header('LOCATION: /'.BASE.'/index.php/servico/listar/');
+		$_POST['data_execucao'] = converterdata($_POST['data_execucao']);
+		update($_POST,$_GET['id'],'servico_tecnico');
+		ob_clean();
+		header('LOCATION: /'.BASE.'/index.php/servico/listar/');
 	}
+
 ?>

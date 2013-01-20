@@ -119,4 +119,10 @@
         return $objetos;
     }
 
+    function converterdata($dados){
+        $str_tratamento = explode('/', $dados);
+        $str_tratada = $str_tratamento[2].'-'.$str_tratamento[1].'-'.$str_tratamento[0];
+        return $str_tratada;
+    }
+
 ?>
