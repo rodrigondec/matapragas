@@ -11,7 +11,6 @@
 	$resultado = mysql_query($sql);
 	echo '<table class=\'lista\'> 
 		<tr>
-			<th>Id</th>
 			<th>Data Execução</th>
 			<th>Executor</th>
 			<th>Cliente</th>
@@ -25,7 +24,6 @@
 		//inverte o formato da data do mysql para brasileiro
 		$servicos['data_execucao']=implode("/",array_reverse(explode("-",$servicos['data_execucao'])));
 			echo '<tr>
-					<td>'.$servicos['id'].'</td>
 					<td>'.$servicos['data_execucao'].'</td>';
 								
 					//acessando o nome do funcionario
