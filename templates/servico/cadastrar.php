@@ -58,10 +58,10 @@
 		</tr>
 		<tr>
 			<td>Tipo de Serviço/Praga:</td>
-			<td><input class='checkbox' type='checkbox' name='tipo_servico[]' value='rato' />Rato
-				<input class='checkbox' type='checkbox' name='tipo_servico[]' value='barata' />Barata
-				<input class='checkbox' type='checkbox' name='tipo_servico[]' value='formiga' />Formiga
-				<input class='checkbox' type='checkbox' name='tipo_servico[]' value='escorpiao' />Escorpiao
+			<td><input type='checkbox' name='tipo_servico[]' value='rato' />Rato
+				<input type='checkbox' name='tipo_servico[]' value='barata' />Barata
+				<input type='checkbox' name='tipo_servico[]' value='formiga' />Formiga
+				<input type='checkbox' name='tipo_servico[]' value='escorpiao' />Escorpiao
 			<td>
 		</tr>
 

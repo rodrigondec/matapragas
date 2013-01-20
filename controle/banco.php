@@ -49,7 +49,10 @@
         $sql = 'UPDATE '.$tabela.' SET ';
         $alteracoes = array();
         foreach ($dados as $chave => $valor) {
-          $alteracoes[] = $chave.'=\''.$valor.'\'';
+            if ($chave == 'tipo_servico'){
+                $valor = implode(', ', $valor);
+            }
+            $alteracoes[] = $chave.'=\''.$valor.'\'';
         }
         $sql .= implode(', ', $alteracoes);
         $sql .= ' WHERE id='.$id.';';

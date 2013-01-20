@@ -5,7 +5,7 @@
 	$resultado = mysql_query($sql);
 	$servicos = mysql_fetch_assoc($resultado);
 ?>
-<table class='form'>
+<table>
 	<form method='POST' action='matapragas/index.php/servico/alterar/?id=<?php echo $_GET['id'] ?>'>
 		<tr>
 			<td>Modifique a data:</td>
@@ -78,6 +78,66 @@
 			}
 		echo 	'>agendado</option>
 			</select></td>';?>
+		<tr>
+			<td>Tipo de Serviço/Praga:</td>
+			<td><input type='checkbox' name='tipo_servico[]' value='rato' 
+					<?php
+						$sql = 'SELECT tipo_servico from servico_tecnico WHERE id=\''.$_GET['id'].'\'';
+						$resultado = mysql_query($sql);
+						$distratada = mysql_fetch_assoc($resultado);
+						$tratamento = $distratada['tipo_servico'];
+						$tipo_servico = explode(', ', $tratamento);
+						foreach ($tipo_servico as $value) {
+							if ($value == 'rato'){
+								echo 'checked';
+							}
+						}
+					?>
+				/>Rato
+				<input type='checkbox' name='tipo_servico[]' value='barata' 
+					<?php
+						$sql = 'SELECT tipo_servico from servico_tecnico WHERE id=\''.$_GET['id'].'\'';
+						$resultado = mysql_query($sql);
+						$distratada = mysql_fetch_assoc($resultado);
+						$tratamento = $distratada['tipo_servico'];
+						$tipo_servico = explode(', ', $tratamento);
+						foreach ($tipo_servico as $value) {
+							if ($value == 'barata'){
+								echo 'checked';
+							}
+						}
+					?>
+				/>Barata
+				<input type='checkbox' name='tipo_servico[]' value='formiga' 
+					<?php
+						$sql = 'SELECT tipo_servico from servico_tecnico WHERE id=\''.$_GET['id'].'\'';
+						$resultado = mysql_query($sql);
+						$distratada = mysql_fetch_assoc($resultado);
+						$tratamento = $distratada['tipo_servico'];
+						$tipo_servico = explode(', ', $tratamento);
+						foreach ($tipo_servico as $value) {
+							if ($value == 'formiga'){
+								echo 'checked';
+							}
+						}
+					?>
+				/>Formiga
+				<input type='checkbox' name='tipo_servico[]' value='escorpiao' 
+					<?php
+						$sql = 'SELECT tipo_servico from servico_tecnico WHERE id=\''.$_GET['id'].'\' LIMIT 1';
+						$resultado = mysql_query($sql);
+						$distratada = mysql_fetch_assoc($resultado);
+						$tratamento = $distratada['tipo_servico'];
+						$tipo_servico = explode(', ', $tratamento);
+						foreach ($tipo_servico as $value) {
+							if ($value == 'escorpiao'){
+								echo 'checked';
+							}
+						}
+					?>
+				/>Escorpiao
+			<td>
+		</tr>
 		<tr>
 			<td><button type='submit'>Alterar Cadastro</button></td>
 		</tr>
