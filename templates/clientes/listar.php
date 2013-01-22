@@ -21,10 +21,16 @@ echo '<table class=\'lista\'>
 				<td>'.$cliente['endereco'].'</td>
 				<td>'.$cliente['data_ultima_visita'].'</td>
 				<td>'.$cliente['data_proxima_visita'].'</td>
-				<td>'.$cliente['status'].'</td>
+				<td>'.$cliente['status'].'</td>';
+		if($_SESSION['login'] == 'levi'){
+			echo '
 				<td><a href=\'/'.BASE.'/index.php/clientes/alterar/?id='.$cliente['id'].'\'>Alterar</a></td>
 				<td><a href=\'/'.BASE.'/index.php/clientes/remover/?id='.$cliente['id'].'\'>Remover</a></td>
 			  </tr>';
+			}
+		else {
+			echo '</tr>';
+		}
 	}
 echo '</table>';
 

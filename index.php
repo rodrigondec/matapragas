@@ -21,7 +21,7 @@
 
         	mostrar_conteudo(); //mostrar o template incluído
         ?>
-        <a href='<?php echo '/'.BASE.'/logout.php/'; ?>'>SAIR</a>
+        
     </body>
 </html>
 
