@@ -29,6 +29,7 @@
 		// var_dump($_SESSION);
 		if ($usuario && $usuario['senha'] == md5($_POST['senha'])) {
 			$_SESSION['login'] = $usuario['login'];
+			$_SESSION['tipo_usuario'] = $usuario['tipo_usuario'];
 			ob_clean();
 			header('LOCATION: /'.BASE.'/index.php/servico/listar/');
 		}

@@ -1,7 +1,4 @@
 <?php
-
-
-
     // conexão com banco
     $link = mysql_connect(DB_HOST, DB_USER, DB_PASS);
     if (!$link) {
@@ -13,9 +10,6 @@
 
     // função que executa SQL para insert
     // INSERT INTO $tabela ($chaves,...) VALUES ($valores)
-
-
-
     function insert($dados, $tabela) {
         $sql = 'INSERT INTO '.$tabela;
         $chaves = array();

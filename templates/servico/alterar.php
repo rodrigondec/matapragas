@@ -1,3 +1,4 @@
+<?php requerer_usuario('agendamento'); ?>
 <br /><br />
 <h2>Alterar Serviço</h2>
 

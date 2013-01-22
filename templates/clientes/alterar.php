@@ -1,3 +1,4 @@
+<?php requerer_usuario('agendamento'); ?>
 <br /><br />
 <h2>Alterar Dados</h2>
 
@@ -49,7 +50,7 @@
 if (count($_POST) > 0){
 		update($_POST, $_GET['id'], 'clientes');
 		ob_clean();
-		header('LOCATION: http://localhost/matapragas/index.php/clientes/listar/');
+		header('LOCATION: /'.BASE.'/index.php/clientes/listar/');
 	}
 
 ?>

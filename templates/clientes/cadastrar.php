@@ -1,3 +1,4 @@
+<?php requerer_usuario('agendamento'); ?>
 <br /><br />
 <h2>Cadastrar Cliente</h2>
 <table>
@@ -35,6 +36,6 @@
 	if (count($_POST) > 0){
 		insert($_POST, 'clientes');
 		ob_clean();
-		header('LOCATION: http://localhost/matapragas/index.php/clientes/listar/');
+		header('LOCATION: /'.BASE.'/index.php/clientes/listar/');
 	}
 ?>

@@ -1,4 +1,5 @@
 <?php 
+	requerer_usuario('agendamento');
 	//include_once('templates/provas/listar.php');
 	echo 'Codigo para remover serviço de id='.$_GET['id'].'.';
 
