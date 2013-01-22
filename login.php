@@ -23,7 +23,10 @@
 		$sql='SELECT * FROM users WHERE login =\''.$_POST['login'].'\';';
 		$resultado=mysql_query($sql);
 		$usuario=mysql_fetch_assoc($resultado);
-	//	var_dump($_SESSION);
+		// var_dump($usuario);
+		// echo '<br />';
+		// var_dump($_POST);
+		// var_dump($_SESSION);
 		if ($usuario && $usuario['senha'] == md5($_POST['senha'])) {
 			$_SESSION['login'] = $usuario['login'];
 			ob_clean();

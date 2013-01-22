@@ -65,4 +65,4 @@ INSERT INTO funcionarios (nome) values ('Alisson Levi'),('Lucas Castro'),('Diego
 
 INSERT INTO servico_tecnico (data_execucao, funcionario_id, cliente_id, tempo_garantia, observacoes, status) values ('2013-03-05', 1, 1, 3, 'nenhuma', 'agendado');
 
-INSERT INTO users (tipo_usuario,login,senha) values ('agendamento','levi',md5('123456')),('estoque','rodrigo','654321');
+INSERT INTO users (tipo_usuario,login,senha) values ('agendamento','levi',md5('123456')),('estoque','rodrigo',md5('654321'));

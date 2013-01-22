@@ -12,8 +12,13 @@
         <?php 
             if (!isset($_SESSION['login']))
                header('LOCATION:/'.BASE.'/login.php');
+            if (){
+                include_once(TEMPLATES.'/geral/menu_estoque.php'); //adicionando menu
+            }
+            else if (){
+                include_once(TEMPLATES.'/geral/menu_agendamento.php'); //adicionando menu
+            }
 
-            include_once(TEMPLATES.'/geral/menu.php'); //adicionando menu
         	mostrar_conteudo(); //mostrar o template incluído
         ?>
         <a href='<?php echo '/'.BASE.'/logout.php/'; ?>'>SAIR</a>
