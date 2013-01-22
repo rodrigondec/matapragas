@@ -12,10 +12,10 @@
         <?php 
             if (!isset($_SESSION['login']))
                header('LOCATION:/'.BASE.'/login.php');
-            if (){
+            if ($_SESSION['login'] == 'rodrigo'){
                 include_once(TEMPLATES.'/geral/menu_estoque.php'); //adicionando menu
             }
-            else if (){
+            else if ($_SESSION['login'] == 'levi'){
                 include_once(TEMPLATES.'/geral/menu_agendamento.php'); //adicionando menu
             }
 
