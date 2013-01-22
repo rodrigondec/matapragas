@@ -12,6 +12,7 @@
 	define('DB_HOST', 'localhost'); //Windows
 	//define('DB_HOST', 'localhost:/tmp/mysql.sock'); //Unix/OSX
 	ob_start(); //Criando Buffer
+	session_start();
 	date_default_timezone_set('America/Recife');
 	include_once('banco.php');
 ?>

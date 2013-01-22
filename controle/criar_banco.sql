@@ -48,14 +48,6 @@ CREATE TABLE tipo_servico (
 	nome_servico varchar(255) NOT NULL,
 	PRIMARY KEY (id)
 );
-CREATE TABLE tabela_intermediaria_servico (
-	id int NOT NULL auto_increment,
-	servico_id int NOT NULL,
-	tipo_id int NOT NULL,
-	PRIMARY KEY (id),
-	FOREIGN KEY (servico_id) REFERENCES servico_tecnico(id),
-	FOREIGN KEY (tipo_id) REFERENCES tipo_servico(id)
-);
 CREATE TABLE users (
 	id int NOT NULL auto_increment,
 	tipo_usuario varchar(255) NOT NULL,
@@ -72,3 +64,5 @@ INSERT INTO clientes (nome, razao_social, cnpj, endereco, status) values ('ItCur
 INSERT INTO funcionarios (nome) values ('Alisson Levi'),('Lucas Castro'),('Diego'),('Rodrigo Castro');
 
 INSERT INTO servico_tecnico (data_execucao, funcionario_id, cliente_id, tempo_garantia, observacoes, status) values ('2013-03-05', 1, 1, 3, 'nenhuma', 'agendado');
+
+INSERT INTO users (tipo_usuario,login,senha) values ('agendamento','levi',md5('123456')),('estoque','rodrigo','654321');
