@@ -80,11 +80,12 @@
 			}
 		echo 	'>agendado</option>
 			</select></td>';?>
+		</tr>
 		<tr>
 			<td>Tipo de Serviço/Praga:</td>
 			<td><input type='checkbox' name='tipo_servico[]' value='rato' 
 					<?php
-						$sql = 'SELECT tipo_servico from servico_tecnico WHERE id=\''.$_GET['id'].'\'';
+						$sql = 'SELECT tipo_servico from servico_tecnico WHERE id=\''.$_GET['id'].'\';';
 						$resultado = mysql_query($sql);
 						$distratada = mysql_fetch_assoc($resultado);
 						$tratamento = $distratada['tipo_servico'];

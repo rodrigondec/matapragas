@@ -43,11 +43,6 @@ CREATE TABLE servico_tecnico (
 	FOREIGN KEY (funcionario_id) REFERENCES funcionarios(id),
 	FOREIGN KEY (cliente_id) REFERENCES clientes(id)
 );
-CREATE TABLE tipo_servico (
-	id int NOT NULL auto_increment,
-	nome_servico varchar(255) NOT NULL,
-	PRIMARY KEY (id)
-);
 CREATE TABLE users (
 	id int NOT NULL auto_increment,
 	tipo_usuario varchar(255) NOT NULL,
@@ -55,9 +50,6 @@ CREATE TABLE users (
 	senha varchar(255) NOT NULL,	
 	PRIMARY KEY (id)
 );
-
-
-INSERT INTO tipo_servico (nome_servico) values ('rato'),('barata'),('formiga'),('escorpiao'); 
 
 INSERT INTO clientes (nome, razao_social, cnpj, endereco, status) values ('ItCursos', 'Itrative Cursos', '12.123.123/1234-12', 'Rua Miguel Castro', 'contratado'),('Universidade Potiguar', 'ufrn', '11.123.123/1234-12', 'Rua Desconhecida', 'sob demanda'),('Evolux', 'Evolpixu', '13.123.123/1234-12', 'Rua Evesconhecida', 'contratado'); 
 

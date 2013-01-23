@@ -5,8 +5,6 @@
 
 <table>
 	<form  class='form_padrao' method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
-
-		<!-- Pra q esse input com o id? id eh auto-increment e n precisa salvar id no cadastro <td><input name='id' type='hidden'/> -->
 		<tr>
 			<td>Data:</td>
 			<td><input type='date' name='data_execucao' required/></td>
@@ -65,36 +63,10 @@
 				<input type='checkbox' name='tipo_servico[]' value='escorpiao' />Escorpiao
 			<td>
 		</tr>
-
-
-
-	<!--
-	<tr>Tipo de Serviço
-		<?php 
-			//$sql = 'select * from tipo_servico;';
-			//Execute a query
-			//$resultado// = mysql_query($sql);
-				//echo '<select name=\'tipo_servico\'>';
-				//Enquanto fetch retornar algo diferente de nulo
-				//while ($tipo_servico = mysql_fetch_assoc($resultado)) {
-		
-				//	echo '<option>'.$tipo_servico['nome_servico'].'</option>';
-			
-			//	}
-		//	echo '</select>';
-
-		?>
-
-	</tr>
-		-->
-
 		<tr><td><button type='submit'>Cadastrar</button></td></tr>
 	</form>
 </table>
 <?php 
-	
-	
-	
 	if (count($_POST) > 0){
 		// var_dump($_POST);
 		$_POST['funcionario_id'] = (int)$_POST['funcionario_id'];
@@ -102,7 +74,5 @@
 		insert($_POST,'servico_tecnico');
 		ob_clean();
 		header('LOCATION: /'.BASE.'/index.php/servico/listar/');
-		
 	}
-
 ?>

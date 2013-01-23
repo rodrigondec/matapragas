@@ -43,8 +43,8 @@
 					<td>'.$servicos['tipo_servico'].'</td>';
 			if($_SESSION['login'] == 'levi'){
 				echo '
-					<td><a href=\'/'.BASE.'/index.php/clientes/alterar/?id='.$servicos['id'].'\'>Alterar</a></td>
-					<td><a href=\'/'.BASE.'/index.php/clientes/remover/?id='.$servicos['id'].'\'>Remover</a></td>
+					<td><a href=\'/'.BASE.'/index.php/servico/alterar/?id='.$servicos['id'].'\'>Alterar</a></td>
+					<td><a href=\'/'.BASE.'/index.php/servico/remover/?id='.$servicos['id'].'\'>Remover</a></td>
 			 		</tr>';
 		}
 			else {
@@ -52,7 +52,6 @@
 		}							
 	}
 			echo '</table>';
-
 ?>
 
 
