@@ -1,5 +1,13 @@
 <?php 
 
+	function data_prox_visita($id){
+
+	}
+
+	function data_ult_visita($id){
+		
+	}
+
 	function requerer_usuario($tipo_usuario) {
 		if(!($_SESSION['tipo_usuario'] == $tipo_usuario)){
 			ob_clean();
