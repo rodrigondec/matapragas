@@ -31,4 +31,15 @@
         return $str_tratada;
     }
 
+    function definir_status($data){
+    	$data_selecionada = strtotime($data);
+    	$data_agora = strtotime(date('Y-m-d'));
+    	if ($data_selecionada > $data_agora){
+    		return 'Agendado';
+    	}
+    	else if ($data_selecionada < $data_agora){
+    		return 'Executado';
+    	}
+    }
+
 ?>

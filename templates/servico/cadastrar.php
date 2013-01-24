@@ -52,8 +52,8 @@
 			<td>Observações:</td><td><input type='text' name='observacoes' required/></td>
 		</tr>
 		<tr>
-			<td>Status:</td>
-			<td><select type='text' name='status' required/>
+			<td hidden>Status:</td>
+			<td hidden><select type='text' name='status' >
 					<option>Executado</option>
 					<option>Agendado</option>
 				</select>
@@ -72,7 +72,7 @@
 </table>
 <?php 
 	if (count($_POST) > 0){
-		// var_dump($_POST);
+		$_POST['status'] = definir_status($_POST['data_execucao']);
 		$_POST['funcionario_id'] = (int)$_POST['funcionario_id'];
 		$_POST['cliente_id'] = (int)$_POST['cliente_id'];
 		insert($_POST,'servico_tecnico');
