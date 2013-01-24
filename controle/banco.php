@@ -83,5 +83,11 @@
         return $tratado;
     }
 
+    function select($campo, $tabela, $id){
+        $sql = 'SELECT '.$campo.' from '.$tabela.' WHERE cliente_id = '.$id.';';
+        $query = mysql_query($sql);
+        $resultado = mysql_fetch_assoc($query);
+        return $resultado;
+    }
 
 ?>

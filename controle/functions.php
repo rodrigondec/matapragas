@@ -1,9 +1,7 @@
 <?php 
 
 	function data_ult_visita($id){
-		$sql = 'SELECT data_execucao from servico_tecnico WHERE cliente_id ='.$id.';';
-        $query = mysql_query($sql);
-        $resultado = mysql_fetch_assoc($query);
+		$resultado = select('data_execucao', 'servico_tecnico', $id);
         if (isset($resultado['data_execucao'])){
 			$data_execucao = strtotime($resultado['data_execucao']);
 			$data_agora = strtotime(date('Y-m-d'));
@@ -13,8 +11,29 @@
 				return $ultima_visita;
 			}
 			else {
-				return;
+				return 'nao executada';
 			}
+		}
+		else{
+			return 'servico nao cadastrado';
+		}
+	}
+
+	function data_prox_visita($id){
+		$resultado = select('status', 'servico_tecnico', $id);
+		if (isset($resultado['status'])){
+			if ($resultado['status'] == 'agendado'){
+				$tratamento_data = select('data_execucao', 'servico_tecnico', $id);
+				$data_explode = explode('-', $tratamento_data['data_execucao']);
+				$prox_data = $data_explode[2].'/'.$data_explode[1].'/'.$data_explode[0];
+				return $prox_data;
+			}
+			else if ($resultado['status'] == 'executado'){
+
+			}
+		}
+		else{
+			return 'servico nao cadastrado';
 		}
 	}
 

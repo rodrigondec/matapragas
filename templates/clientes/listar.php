@@ -20,7 +20,7 @@ echo '<table class=\'lista\'>
 				<td>'.$cliente['cnpj'].'</td>
 				<td>'.$cliente['endereco'].'</td>
 				<td>'.data_ult_visita($cliente['id']).'</td>
-				<td>'.$cliente['data_proxima_visita'].'</td>
+				<td>'.data_prox_visita($cliente['id']).'</td>
 				<td>'.$cliente['status'].'</td>';
 		if($_SESSION['login'] == 'levi'){
 			echo '
