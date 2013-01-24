@@ -16,8 +16,14 @@
             $arquivo = array_pop($partes); //Último elemento
             $pasta = array_pop($partes); //Penúltimo elemento
         } else {
-            $pasta = 'servico';
-            $arquivo = 'listar';        
+            if ($_SESSION['login'] == 'levi'){
+                $pasta = 'servico';
+                $arquivo = 'listar';
+            } 
+            elseif ($_SESSION['login'] == 'rodrigo') {
+                $pasta = 'estoque';
+                $arquivo = 'listar';
+            }   
         }    
         $caminho = montar_include($pasta, $arquivo);
         include_once($caminho);
