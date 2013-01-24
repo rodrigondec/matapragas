@@ -28,23 +28,20 @@
 		<tr>
 			<td>Cliente:</td>
 			<td><?php $sql = 'select * from clientes;';
-				//Execute a query
 				$resultado = mysql_query($sql);
 				echo '<select name=\'cliente_id\'>';
-				//Enquanto fetch retornar algo diferente de nulo
 				while ($clientes = mysql_fetch_assoc($resultado)):
-					if ($clientes['id'] == buscar_id_servico($clientes['id'])){
-						?>
-					<option>
-					<?php echo 'Todos os clientes ja possuem servicos cadastrados';?>
-					</option>
-					<?php }
+					// esse IF Retira os clientes q ja possuem servicos cadastrados do option.
+					if ($clientes['id'] == buscar_id_servico($clientes['id'])){	
+					}
 					else {
 					?>
 					<option value='<?php echo $clientes['id']?>'>
 						<?php echo $clientes['nome']?>
 					</option>
-			<?php }endwhile; echo '</select>';?>
+			<?php }endwhile;
+			echo '</select>';
+			?>
 			</td>
 		</tr>
 		<tr>
