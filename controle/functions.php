@@ -1,7 +1,7 @@
 <?php 
 
 	function data_ult_visita($id){
-		$resultado = select('data_execucao', 'servico_tecnico', $id);
+		$resultado = select('data_execucao', 'servico_tecnico', 'cliente_id', $id);
         if (isset($resultado['data_execucao'])){
 			$data_execucao = strtotime($resultado['data_execucao']);
 			$data_agora = strtotime(date('Y-m-d'));
@@ -20,17 +20,19 @@
 	}
 
 	function data_prox_visita($id){
-		$resultado = select('status', 'servico_tecnico', $id);
+		$resultado = select('status', 'servico_tecnico', 'cliente_id', $id);
 		if (isset($resultado['status'])){
 			if ($resultado['status'] == 'agendado'){
-				$tratamento_data = select('data_execucao', 'servico_tecnico', $id);
+				$tratamento_data = select('data_execucao', 'servico_tecnico', 'cliente_id', $id);
 				$data_explode = explode('-', $tratamento_data['data_execucao']);
 				$prox_data = $data_explode[2].'/'.$data_explode[1].'/'.$data_explode[0];
 				return $prox_data;
 			}
 			else if ($resultado['status'] == 'executado'){
-				$resultado = select('data_execucao', 'servico_tecnico', $id);
-				var_dump($resultado);
+				$contrato = select('status', 'clientes', 'id', $id);
+				var_dump($contrato);
+				$resultado = select('data_execucao', 'servico_tecnico', 'cliente_id', $id);
+				// var_dump($resultado);
 			}
 		}
 		else{
@@ -55,10 +57,10 @@
     	$data_selecionada = strtotime($data);
     	$data_agora = strtotime(date('Y-m-d'));
     	if ($data_selecionada > $data_agora){
-    		return 'Agendado';
+    		return 'agendado';
     	}
     	else if ($data_selecionada < $data_agora){
-    		return 'Executado';
+    		return 'executado';
     	}
     }
 

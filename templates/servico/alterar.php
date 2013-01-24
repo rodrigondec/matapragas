@@ -43,13 +43,15 @@
 			<?php
 				$sql = 'select * from clientes;';				
 				$resultado = mysql_query($sql);
-				echo '';
+
 				while ($clientes = mysql_fetch_assoc($resultado)):
+					$id_do_cliente = select('cliente_id', 'servico_tecnico','id',  $_GET['id']);
+					if ($id_do_cliente['cliente_id'] == $clientes['id']){
 			?>
 				<option value='<?php echo $clientes['id']?>'>
 				<?php echo $clientes['nome']?>
-				</option>';	
-				<?php endwhile; ?>
+				</option>
+				<?php } endwhile; ?>
 			</select>
 			</td>
 		</tr>
