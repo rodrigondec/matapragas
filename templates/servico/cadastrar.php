@@ -34,14 +34,16 @@
 				//Enquanto fetch retornar algo diferente de nulo
 				while ($clientes = mysql_fetch_assoc($resultado)):
 					if ($clientes['id'] == buscar_id_servico($clientes['id'])){
-
-					}
+						?>
+					<option>
+					<?php echo 'Todos os clientes ja possuem servicos cadastrados';?>
+					</option>
+					<?php }
 					else {
-			?>
+					?>
 					<option value='<?php echo $clientes['id']?>'>
 						<?php echo $clientes['nome']?>
-					</option>';
-			
+					</option>
 			<?php }endwhile; echo '</select>';?>
 			</td>
 		</tr>

@@ -34,7 +34,7 @@ echo '<table class=\'lista\'>
 				<td><a href=\'/'.BASE.'/index.php/clientes/alterar/?id='.$cliente['id'].'\'>Alterar</a></td>
 				<td><a href=\'/'.BASE.'/index.php/clientes/remover/?id='.$cliente['id'].'\'>Remover</a></td>';
 			if ($cliente['status'] == 'sob demanda'){
-				echo '<td><a href=\'/'.BASE.'/index.php/clientes/agendar_visita/?id='.$cliente['id'].'\'>Agendar Visita</a></td></tr>';
+				echo '<td><a href=\'/'.BASE.'/index.php/clientes/agendar_visita/?id='.$cliente['id'].'\'>Agendar/Editar Data de Visita</a></td></tr>';
 			}
 			else{
 				echo '</tr>';
@@ -45,6 +45,4 @@ echo '<table class=\'lista\'>
 		}
 	}
 echo '</table>';
-
 ?>
-
