@@ -29,7 +29,8 @@
 				return $prox_data;
 			}
 			else if ($resultado['status'] == 'executado'){
-
+				$resultado = select('data_execucao', 'servico_tecnico', $id);
+				var_dump($resultado);
 			}
 		}
 		else{

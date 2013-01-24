@@ -61,8 +61,8 @@
 			<td><input type='text' name='observacoes' value='<?php echo $servicos['observacoes'] ?>' required></td>
 		</tr>
 		<tr>
-			<td>Modifique o status:</td>
-			<td>
+			<td hidden>Modifique o status:</td>
+			<td hidden>
 			<select name='status'>
 			<?php
 				$sql = 'SELECT status from servico_tecnico';
@@ -149,8 +149,9 @@
 
 <?php 
 
-	if(count($_POST) > 0){
+	if(count($_POST) > 0){	
 		$_POST['data_execucao'] = converter_data($_POST['data_execucao']);
+		$_POST['status'] = definir_status($_POST['data_execucao']);
 		update($_POST,$_GET['id'],'servico_tecnico');
 		ob_clean();
 		header('LOCATION: /'.BASE.'/index.php/servico/listar/');

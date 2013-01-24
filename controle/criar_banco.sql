@@ -39,7 +39,6 @@ CREATE TABLE servico_tecnico (
 	observacoes varchar(255) NOT NULL,
 	status varchar(255) NOT NULL,
 	tipo_servico varchar(255) NOT NULL,
-	UNIQUE (cliente_id),
 	PRIMARY KEY (id),
 	FOREIGN KEY (funcionario_id) REFERENCES funcionarios(id),
 	FOREIGN KEY (cliente_id) REFERENCES clientes(id)
