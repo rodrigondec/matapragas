@@ -20,14 +20,26 @@ echo '<table class=\'lista\'>
 				<td>'.$cliente['cnpj'].'</td>
 				<td>'.$cliente['endereco'].'</td>
 				<td>'.data_ult_visita($cliente['id']).'</td>
-				<td>'.data_prox_visita($cliente['id']).'</td>
+				<td>';
+		if($cliente['status'] == 'contratado'){
+				echo data_prox_visita($cliente['id']);
+		}
+		elseif($cliente['status'] == 'sob demanda'){
+				echo reverter_data($cliente['data_proxima_visita']);
+		}
+				echo '</td>
 				<td>'.$cliente['status'].'</td>';
 		if($_SESSION['login'] == 'levi'){
 			echo '
 				<td><a href=\'/'.BASE.'/index.php/clientes/alterar/?id='.$cliente['id'].'\'>Alterar</a></td>
-				<td><a href=\'/'.BASE.'/index.php/clientes/remover/?id='.$cliente['id'].'\'>Remover</a></td>
-			  </tr>';
+				<td><a href=\'/'.BASE.'/index.php/clientes/remover/?id='.$cliente['id'].'\'>Remover</a></td>';
+			if ($cliente['status'] == 'sob demanda'){
+				echo '<td><a href=\'/'.BASE.'/index.php/clientes/agendar_visita/?id='.$cliente['id'].'\'>Agendar Visita</a></td></tr>';
 			}
+			else{
+				echo '</tr>';
+			}
+		}
 		else {
 			echo '</tr>';
 		}

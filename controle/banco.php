@@ -50,6 +50,7 @@
         }
         $sql .= implode(', ', $alteracoes);
         $sql .= ' WHERE id='.$id.';';
+        // var_dump($sql);
         return mysql_query($sql);
     }
 

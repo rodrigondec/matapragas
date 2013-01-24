@@ -49,8 +49,8 @@
 
 if (count($_POST) > 0){
 		update($_POST, $_GET['id'], 'clientes');
-		ob_clean();
-		header('LOCATION: /'.BASE.'/index.php/clientes/listar/');
+		// ob_clean();
+		// header('LOCATION: /'.BASE.'/index.php/clientes/listar/');
 	}
 
 ?>
