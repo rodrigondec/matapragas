@@ -39,6 +39,7 @@ CREATE TABLE servico_tecnico (
 	observacoes varchar(255) NOT NULL,
 	status varchar(255) NOT NULL,
 	tipo_servico varchar(255) NOT NULL,
+	UNIQUE (cliente_id),
 	PRIMARY KEY (id),
 	FOREIGN KEY (funcionario_id) REFERENCES funcionarios(id),
 	FOREIGN KEY (cliente_id) REFERENCES clientes(id)
@@ -55,6 +56,6 @@ INSERT INTO clientes (nome, razao_social, cnpj, endereco, status) values ('ItCur
 
 INSERT INTO funcionarios (nome) values ('Alisson Levi'),('Lucas Castro'),('Diego'),('Rodrigo Castro');
 
-INSERT INTO servico_tecnico (data_execucao, funcionario_id, cliente_id, tempo_garantia, observacoes, status) values ('2013-03-05', 1, 1, 3, 'nenhuma', 'agendado');
+INSERT INTO servico_tecnico (data_execucao, funcionario_id, cliente_id, tempo_garantia, observacoes, status, tipo_servico) values ('2013-03-05', 1, 1, 3, 'nenhuma', 'agendado', 'rato, barata');
 
 INSERT INTO users (tipo_usuario,login,senha) values ('agendamento','levi',md5('123456')),('estoque','rodrigo',md5('654321'));

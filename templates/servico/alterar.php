@@ -150,7 +150,7 @@
 <?php 
 
 	if(count($_POST) > 0){
-		$_POST['data_execucao'] = converterdata($_POST['data_execucao']);
+		$_POST['data_execucao'] = converter_data($_POST['data_execucao']);
 		update($_POST,$_GET['id'],'servico_tecnico');
 		ob_clean();
 		header('LOCATION: /'.BASE.'/index.php/servico/listar/');
